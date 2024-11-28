@@ -1,0 +1,146 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'romance';
+    src: url(/fuentes/Elegancia\ Romantica.ttf);
+}
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #000, #b30000, #0033cc);
+    animation: gradientMove 10s linear infinite;
+}
+
+/* Efecto de movimiento de gradiente */
+@keyframes gradientMove {
+    0% { background: linear-gradient(45deg, #000, #b30000, #0033cc); }
+    50% { background: linear-gradient(45deg, #0033cc, #b30000, #000); }
+    100% { background: linear-gradient(45deg, #000, #b30000, #0033cc); }
+}
+
+/* Contenedor principal */
+.container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos del título */
+h1 {
+    color: #ff3333;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para el nombre dentro del título */
+.name {
+    font-weight: bold;
+    color: #ff6666;
+}
+div h1{
+    letter-spacing: 10px;
+}
+
+/* Descripción debajo del título */
+.description {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 10px;
+}
+
+/* Botón */
+.play-btn {
+    background-color: #0033cc;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.play-btn:hover {
+    background-color: #b30000;
+    transform: scale(1.1);
+}
+
+/* Estilo del texto enmarcado que aparece después de hacer clic */
+.text-container {
+    display: none; /* Inicialmente oculto */
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #ff6347; /* Marco rojo */
+    border-radius: 10px;
+    background-color: rgba(255, 99, 71, 0.2); /* Fondo semitransparente */
+    color: #ff6347; /* Color del texto */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto de partículas en el fondo */
+@keyframes particlesMove {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Partículas flotando */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: particlesMove 5s linear infinite;
+}
+
+.fondito {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de partículas generadas */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url(''); /* Fondo transparente, sin interferir */
+    animation: particlesMove 10s linear infinite, particleMove 3s linear infinite;
+}
+
+.particle {
+    animation-duration: calc(3s + 4s);
+    left: calc(100% * var(--random-x));
+    top: calc(100% * var(--random-y));
+}
